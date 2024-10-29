@@ -1,4 +1,3 @@
-from collections.abc import Sequence
 import pymc as pm
 from pymc.data import TensorVariable
 from pymc.distributions.shape_utils import Dims
@@ -7,8 +6,8 @@ from numpy.typing import ArrayLike
 
 def Binomial(
     name: str,
-    n: int,
-    p: float,
+    n: ArrayLike | TensorVariable,
+    p: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -17,9 +16,9 @@ def Binomial(
 
 def BetaBinomial(
     name: str,
-    alpha: float,
-    beta: float,
-    n: int,
+    alpha: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
+    n: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -29,15 +28,18 @@ def BetaBinomial(
 
 
 def Bernoulli(
-    name: str, p: float, dims: Dims | None = None, observed: ArrayLike | None = None
+    name: str,
+    p: ArrayLike | TensorVariable,
+    dims: Dims | None = None,
+    observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.Bernoulli(name=name, p=p, dims=dims, observed=observed)
 
 
 def DiscreteWeibull(
     name: str,
-    q: float,
-    beta: float,
+    q: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -45,15 +47,18 @@ def DiscreteWeibull(
 
 
 def Poisson(
-    name: str, mu: float, dims: Dims | None = None, observed: ArrayLike | None = None
+    name: str,
+    mu: ArrayLike | TensorVariable,
+    dims: Dims | None = None,
+    observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.Poisson(name=name, mu=mu, dims=dims, observed=observed)
 
 
 def NegativeBinomial(
     name: str,
-    mu: float,
-    alpha: float,
+    mu: ArrayLike | TensorVariable,
+    alpha: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -64,8 +69,8 @@ def NegativeBinomial(
 
 def DiscreteUniform(
     name: str,
-    lower: int,
-    upper: int,
+    lower: ArrayLike | TensorVariable,
+    upper: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -75,16 +80,19 @@ def DiscreteUniform(
 
 
 def Geometric(
-    name: str, p: float, dims: Dims | None = None, observed: ArrayLike | None = None
+    name: str,
+    p: ArrayLike | TensorVariable,
+    dims: Dims | None = None,
+    observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.Geometric(name=name, p=p, dims=dims, observed=observed)
 
 
 def HyperGeometric(
     name: str,
-    N: int,
-    k: int,
-    n: int,
+    N: ArrayLike | TensorVariable,
+    k: ArrayLike | TensorVariable,
+    n: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -93,7 +101,7 @@ def HyperGeometric(
 
 def Categorical(
     name: str,
-    p: Sequence[float],
+    p: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -102,8 +110,8 @@ def Categorical(
 
 def OrderedLogistic(
     name: str,
-    eta: float,
-    cutpoints: list[float] | TensorVariable,
+    eta: ArrayLike | TensorVariable,
+    cutpoints: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -114,8 +122,8 @@ def OrderedLogistic(
 
 def OrderedProbit(
     name: str,
-    eta: float,
-    cutpoints: list[float] | TensorVariable,
+    eta: ArrayLike | TensorVariable,
+    cutpoints: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:

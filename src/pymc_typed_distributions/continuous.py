@@ -3,13 +3,11 @@ from pymc.data import TensorVariable
 from pymc.distributions.shape_utils import Dims
 from numpy.typing import ArrayLike
 
-pm.Mixture
-
 
 def Uniform(
     name: str,
-    lower: float,
-    upper: float,
+    lower: ArrayLike | TensorVariable,
+    upper: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -30,8 +28,8 @@ def HalfFlat(
 
 def Normal(
     name: str,
-    mu: float,
-    sigma: float,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -40,10 +38,10 @@ def Normal(
 
 def TruncatedNormal(
     name: str,
-    mu: float,
-    sigma: float,
-    lower: float,
-    upper: float,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
+    lower: ArrayLike | TensorVariable,
+    upper: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -60,8 +58,8 @@ def TruncatedNormal(
 
 def Beta(
     name: str,
-    alpha: float,
-    beta: float,
+    alpha: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -70,8 +68,8 @@ def Beta(
 
 def Kumaraswamy(
     name: str,
-    a: float,
-    b: float,
+    a: ArrayLike | TensorVariable,
+    b: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -79,15 +77,18 @@ def Kumaraswamy(
 
 
 def Exponential(
-    name: str, lam: float, dims: Dims | None = None, observed: ArrayLike | None = None
+    name: str,
+    lam: ArrayLike | TensorVariable,
+    dims: Dims | None = None,
+    observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.Exponential(name=name, lam=lam, dims=dims, observed=observed)
 
 
 def Laplace(
     name: str,
-    mu: float,
-    b: float,
+    mu: ArrayLike | TensorVariable,
+    b: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -96,9 +97,9 @@ def Laplace(
 
 def StudentT(
     name: str,
-    nu: float,
-    mu: float,
-    sigma: float,
+    nu: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -109,8 +110,8 @@ def StudentT(
 
 def Cauchy(
     name: str,
-    alpha: float,
-    beta: float,
+    alpha: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -118,15 +119,18 @@ def Cauchy(
 
 
 def HalfCauchy(
-    name: str, beta: float, dims: Dims | None = None, observed: ArrayLike | None = None
+    name: str,
+    beta: ArrayLike | TensorVariable,
+    dims: Dims | None = None,
+    observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.HalfCauchy(name=name, beta=beta, dims=dims, observed=observed)
 
 
 def Gamma(
     name: str,
-    alpha: float,
-    beta: float,
+    alpha: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -135,8 +139,8 @@ def Gamma(
 
 def Weibull(
     name: str,
-    alpha: float,
-    beta: float,
+    alpha: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -145,8 +149,8 @@ def Weibull(
 
 def HalfStudentT(
     name: str,
-    nu: float,
-    sigma: float,
+    nu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -155,8 +159,8 @@ def HalfStudentT(
 
 def LogNormal(
     name: str,
-    mu: float,
-    sigma: float,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -164,22 +168,28 @@ def LogNormal(
 
 
 def ChiSquared(
-    name: str, nu: float, dims: Dims | None = None, observed: ArrayLike | None = None
+    name: str,
+    nu: ArrayLike | TensorVariable,
+    dims: Dims | None = None,
+    observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.ChiSquared(name=name, nu=nu, dims=dims, observed=observed)
 
 
 def HalfNormal(
-    name: str, sigma: float, dims: Dims | None = None, observed: ArrayLike | None = None
+    name: str,
+    sigma: ArrayLike | TensorVariable,
+    dims: Dims | None = None,
+    observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.HalfNormal(name=name, sigma=sigma, dims=dims, observed=observed)
 
 
 def Wald(
     name: str,
-    mu: float,
-    lam: float,
-    alpha: float,
+    mu: ArrayLike | TensorVariable,
+    lam: ArrayLike | TensorVariable,
+    alpha: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -188,8 +198,8 @@ def Wald(
 
 def Pareto(
     name: str,
-    alpha: float,
-    m: float,
+    alpha: ArrayLike | TensorVariable,
+    m: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -198,8 +208,8 @@ def Pareto(
 
 def InverseGamma(
     name: str,
-    alpha: float,
-    beta: float,
+    alpha: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -210,9 +220,9 @@ def InverseGamma(
 
 def ExGaussian(
     name: str,
-    mu: float,
-    sigma: float,
-    nu: float,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
+    nu: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -223,8 +233,8 @@ def ExGaussian(
 
 def VonMises(
     name: str,
-    mu: float,
-    kappa: float,
+    mu: ArrayLike | TensorVariable,
+    kappa: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -233,9 +243,9 @@ def VonMises(
 
 def SkewNormal(
     name: str,
-    mu: float,
-    sigma: float,
-    alpha: float,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
+    alpha: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -246,9 +256,9 @@ def SkewNormal(
 
 def Triangular(
     name: str,
-    lower: float,
-    upper: float,
-    c: float,
+    lower: ArrayLike | TensorVariable,
+    upper: ArrayLike | TensorVariable,
+    c: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -259,8 +269,8 @@ def Triangular(
 
 def Gumbel(
     name: str,
-    mu: float,
-    beta: float,
+    mu: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -269,8 +279,8 @@ def Gumbel(
 
 def Logistic(
     name: str,
-    mu: float,
-    s: float,
+    mu: ArrayLike | TensorVariable,
+    s: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -279,8 +289,8 @@ def Logistic(
 
 def LogitNormal(
     name: str,
-    mu: float,
-    sigma: float,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -305,8 +315,8 @@ def Interpolated(
 
 def Rice(
     name: str,
-    b: float,
-    sigma: float,
+    b: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -315,8 +325,8 @@ def Rice(
 
 def Moyal(
     name: str,
-    mu: float,
-    sigma: float,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -325,9 +335,9 @@ def Moyal(
 
 def AsymmetricLaplace(
     name: str,
-    b: float,
-    kappa: float,
-    mu: float,
+    b: ArrayLike | TensorVariable,
+    kappa: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -338,8 +348,8 @@ def AsymmetricLaplace(
 
 def PolyaGamma(
     name: str,
-    h: float,
-    z: float,
+    h: ArrayLike | TensorVariable,
+    z: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -348,11 +358,11 @@ def PolyaGamma(
 
 def SkewStudentT(
     name: str,
-    a: float | TensorVariable,
-    b: float | TensorVariable,
-    mu: float | TensorVariable = 0,
-    sigma: float | TensorVariable | None = None,
-    lam: float | TensorVariable | None = None,
+    a: ArrayLike | TensorVariable,
+    b: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable = 0,
+    sigma: ArrayLike | TensorVariable | None = None,
+    lam: ArrayLike | TensorVariable | None = None,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:

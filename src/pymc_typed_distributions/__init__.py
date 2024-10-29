@@ -1,3 +1,6 @@
+from .core import (
+    Deterministic as Deterministic,
+)
 from .continuous import (
     Uniform as Uniform,
     Flat as Flat,

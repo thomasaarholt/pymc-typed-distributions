@@ -7,8 +7,8 @@ from numpy.typing import ArrayLike
 
 def HurdlePoisson(
     name: str,
-    psi: float | TensorVariable,
-    mu: float | TensorVariable,
+    psi: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -17,9 +17,9 @@ def HurdlePoisson(
 
 def HurdleNegativeBinomial(
     name: str,
-    psi: float | TensorVariable,
-    mu: float | TensorVariable,
-    alpha: float | TensorVariable,
+    psi: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable,
+    alpha: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -30,9 +30,9 @@ def HurdleNegativeBinomial(
 
 def HurdleGamma(
     name: str,
-    psi: float | TensorVariable,
-    alpha: float | TensorVariable,
-    beta: float | TensorVariable,
+    psi: ArrayLike | TensorVariable,
+    alpha: ArrayLike | TensorVariable,
+    beta: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -43,16 +43,16 @@ def HurdleGamma(
 
 def HurdleLogNormal(
     name: str,
-    psi: float | TensorVariable,
-    mu: float | TensorVariable,
-    sigma: float | TensorVariable,
+    psi: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable,
+    sigma: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
     return pm.HurdleLogNormal(
         name=name,
         psi=psi,
-        mu=mu,  # type:ignore # should be float
+        mu=mu,  # type:ignore # should be ArrayLike
         sigma=sigma,
         dims=dims,
         observed=observed,
@@ -61,7 +61,7 @@ def HurdleLogNormal(
 
 def Mixture(
     name: str,
-    w: Sequence[float] | TensorVariable,
+    w: Sequence[ArrayLike] | TensorVariable,
     comp_dists: Sequence[TensorVariable],
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
@@ -73,10 +73,10 @@ def Mixture(
 
 def NormalMixture(
     name: str,
-    w: Sequence[float] | TensorVariable,
-    mu: Sequence[float] | TensorVariable,
-    sigma: Sequence[float] | TensorVariable | None = None,
-    tau: Sequence[float] | TensorVariable | None = None,
+    w: Sequence[ArrayLike] | TensorVariable,
+    mu: Sequence[ArrayLike] | TensorVariable,
+    sigma: Sequence[ArrayLike] | TensorVariable | None = None,
+    tau: Sequence[ArrayLike] | TensorVariable | None = None,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -87,8 +87,8 @@ def NormalMixture(
 
 def ZeroInflatedPoisson(
     name: str,
-    psi: float | TensorVariable,
-    mu: float | TensorVariable,
+    psi: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -99,9 +99,9 @@ def ZeroInflatedPoisson(
 
 def ZeroInflatedBinomial(
     name: str,
-    psi: float | TensorVariable,
-    n: int | TensorVariable,
-    p: float | TensorVariable,
+    psi: ArrayLike | TensorVariable,
+    n: ArrayLike | TensorVariable,
+    p: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
@@ -112,9 +112,9 @@ def ZeroInflatedBinomial(
 
 def ZeroInflatedNegativeBinomial(
     name: str,
-    psi: float | TensorVariable,
-    mu: float | TensorVariable,
-    alpha: float | TensorVariable,
+    psi: ArrayLike | TensorVariable,
+    mu: ArrayLike | TensorVariable,
+    alpha: ArrayLike | TensorVariable,
     dims: Dims | None = None,
     observed: ArrayLike | None = None,
 ) -> TensorVariable:
