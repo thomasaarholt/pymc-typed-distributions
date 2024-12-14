@@ -55,13 +55,21 @@ from .discrete import (
 )
 
 from .mixture import (
-    Mixture,
-    NormalMixture,
-    ZeroInflatedPoisson,
-    ZeroInflatedBinomial,
-    ZeroInflatedNegativeBinomial,
-    HurdlePoisson,
-    HurdleNegativeBinomial,
-    HurdleGamma,
-    HurdleLogNormal,
+    Mixture as Mixture,
+    NormalMixture as NormalMixture,
+    ZeroInflatedPoisson as ZeroInflatedPoisson,
+    ZeroInflatedBinomial as ZeroInflatedBinomial,
+    ZeroInflatedNegativeBinomial as ZeroInflatedNegativeBinomial,
+    HurdlePoisson as HurdlePoisson,
+    HurdleNegativeBinomial as HurdleNegativeBinomial,
+    HurdleGamma as HurdleGamma,
+    HurdleLogNormal as HurdleLogNormal,
+)
+
+from .multivariate import (
+    MvNormal as MvNormal,
+    MvStudentT as MvStudentT,
+    Multinomial as Multinomial,
+    Dirichlet as Dirichlet,
+    DirichletMultinomial as DirichletMultinomial,
 )
