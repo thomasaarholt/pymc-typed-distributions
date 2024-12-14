@@ -1,7 +1,8 @@
 import pymc as pm
 from numpy.typing import ArrayLike
-from pymc.data import TensorVariable
 from pymc.distributions.shape_utils import Dims
+
+from .types import TensorVariable
 
 
 def Deterministic(

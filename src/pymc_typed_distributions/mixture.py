@@ -1,8 +1,9 @@
 from collections.abc import Sequence
 import pymc as pm
-from pymc.data import TensorVariable
 from pymc.distributions.shape_utils import Dims
 from numpy.typing import ArrayLike
+
+from .types import TensorVariable
 
 
 def HurdlePoisson(

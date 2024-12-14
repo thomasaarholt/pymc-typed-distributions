@@ -1,3 +1,4 @@
+from .types import TensorVariable
 from .core import (
     Deterministic as Deterministic,
 )
